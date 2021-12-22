@@ -1,28 +1,20 @@
-import React from 'react'
-import { StyleSheet, Text, View, Button } from 'react-native'
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import * as Icon from 'react-native-feather'
+import React, {useState} from 'react';
+import {StyleSheet, Text, View, Button, FlatList} from 'react-native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import * as Icon from 'react-native-feather';
 import Card from './Card';
-import Search from './Search';
 
+const Home = (props) => {
 
+console.log(props)
+  return (
+    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+      <Card/>
 
-
-
-
-const Home = ({navigation}) => {
-    return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Home Screen</Text>
-        <Search/>
-        
-       
     </View>
-    )
-}
+  );
+};
 
-export default Home
+export default Home;
 
-const styles = StyleSheet.create({})
-
-
+const styles = StyleSheet.create({});
