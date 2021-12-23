@@ -68,6 +68,9 @@ const Root = ({navigation}) => {
         name="Home"
         component={Home}
         options={{
+          headerShadowVisible: false,
+          headerTitle: '',
+
           tabBarIcon: ({focused, color, size}) => {
             return <Icon.Home color={color} size={size} />;
           },
