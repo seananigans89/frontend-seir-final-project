@@ -1,31 +1,19 @@
 import React from 'react';
 import {FlatList, StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import Card from './Card';
-import { useNavigation } from '@react-navigation/native';
-import {withNavigation} from 'react-navigation'
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import ItemDetail from './ItemDetail';
-
 
 
 const MyItems = ({items, navigation}) => {
-
-
-
-return (
+  return (
     <View style={styles.container}>
-        
-      <FlatList 
-        
+      <FlatList
         numColumns={2}
         data={items}
-        keyExtractor={(item) => item.id}
+        keyExtractor={item => item.id}
         renderItem={({item}) => (
-            <TouchableOpacity 
-                onPress={() => navigation.navigate('ItemDetail', item)}
-            >
-                
-            <Card >
+          <TouchableOpacity
+            onPress={() => navigation.navigate('ItemDetail', item)}>
+            <Card>
               <Text numberOfLines={2} style={{width: 90}}>
                 {item.brand}
                 {'\n'}
@@ -34,8 +22,7 @@ return (
             </Card>
           </TouchableOpacity>
         )}
-        />
-
+      />
     </View>
   );
 };
@@ -43,14 +30,10 @@ return (
 export default MyItems;
 
 const styles = StyleSheet.create({
-    container:{
-        flex:1,
-        width: '100%',
-        alignItems: 'center',
-        justifyContent: 'center',
-
-    }
-    
-   
-
-})
+  container: {
+    flex: 1,
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});

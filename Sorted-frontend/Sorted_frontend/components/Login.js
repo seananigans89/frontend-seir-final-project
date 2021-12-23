@@ -1,9 +1,12 @@
 import React from 'react'
 import { Button, StyleSheet, Text, TextInput, View } from 'react-native'
+import * as Icon from 'react-native-feather'
 
 const Login = ({navigation}) => {
     return (
         <View style={styles.login}>
+
+            <Icon.LogIn/>
             <TextInput style={styles.input} placeholder='Username'/>
             <TextInput style={styles.input} placeholder='Password' />
             <Button title='Login!' onPress={() => navigation.navigate('Root')}/>

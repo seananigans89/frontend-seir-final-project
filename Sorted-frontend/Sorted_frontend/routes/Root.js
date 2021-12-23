@@ -7,7 +7,6 @@ import MyItems from '../components/MyItems';
 import AddItem from '../components/AddItem';
 import * as Icon from 'react-native-feather';
 
-
 const Tab = createBottomTabNavigator();
 const Root = ({navigation}) => {
   const [items, setItems] = useState([
@@ -83,7 +82,7 @@ const Root = ({navigation}) => {
       owner: 3,
       category: 'Lenses',
     },
-    
+
     {
       id: 10,
       brand: 'Manfrotto',
@@ -111,7 +110,7 @@ const Root = ({navigation}) => {
       owner: 3,
       category: 'Sound',
     },
-   
+
     {
       id: 14,
       brand: 'Apple',
@@ -148,7 +147,6 @@ const Root = ({navigation}) => {
       owner: 3,
       category: 'Cameras',
     },
-   
   ]);
 
   const addItem = item => {
@@ -158,7 +156,7 @@ const Root = ({navigation}) => {
       return [item, ...currentItems];
     });
   };
-  
+
   return (
     <Tab.Navigator
       initialRouteName="Home"
@@ -169,9 +167,7 @@ const Root = ({navigation}) => {
         tabBarShowLabel: false,
         tabBarActiveTintColor: 'black',
         tabBarInactiveTintColor: 'darkgrey',
-        
       }}>
-      
       <Tab.Screen
         name="Home"
         component={Home}
@@ -188,7 +184,7 @@ const Root = ({navigation}) => {
         name="My Items"
         options={{
           tabBarIcon: ({focused, color, size}) => {
-            return <Icon.Grid  color={color} size={size} />;
+            return <Icon.Grid color={color} size={size} />;
           },
         }}>
         {props => <MyItems items={items} navigation={props.navigation} />}
@@ -198,7 +194,7 @@ const Root = ({navigation}) => {
         name="Add Item"
         options={{
           tabBarIcon: ({focused, color, size}) => {
-            return <Icon.PlusCircle  color={color} size={size} />;
+            return <Icon.PlusCircle color={color} size={size} />;
           },
         }}>
         {props => (
@@ -211,7 +207,7 @@ const Root = ({navigation}) => {
         component={Settings}
         options={{
           tabBarIcon: ({focused, color, size}) => {
-            return <Icon.Settings  color={color} size={size} />;
+            return <Icon.Settings color={color} size={size} />;
           },
         }}
       />
@@ -221,6 +217,4 @@ const Root = ({navigation}) => {
 
 export default Root;
 
-const styles = StyleSheet.create({
- 
-});
+const styles = StyleSheet.create({});

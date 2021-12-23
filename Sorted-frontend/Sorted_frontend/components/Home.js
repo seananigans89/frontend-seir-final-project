@@ -1,10 +1,15 @@
 import React, {useState} from 'react';
-import {StyleSheet, Text, View, SafeAreaView, FlatList} from 'react-native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {
+  StyleSheet,
+  Text,
+  View,
+  SafeAreaView,
+  FlatList,
+  TouchableOpacity,
+} from 'react-native';
 import * as Icon from 'react-native-feather';
-// import { Card, Button, Header } from 'react-native-elements';
 import Card from './Card';
-import {NavigationEvents} from 'react-navigation';
+
 import {Searchbar} from 'react-native-paper';
 
 const Home = ({navigation}) => {
@@ -12,7 +17,6 @@ const Home = ({navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.section1}>
-        {/* <Text style={styles.welcome}>Welcome,</Text> */}
         <View style={styles.greeting}>
           <Text style={styles.name}>Sean</Text>
           <View style={styles.user}>
@@ -32,58 +36,67 @@ const Home = ({navigation}) => {
       </View>
 
       <View style={styles.section3}>
-        <View style={styles.tile}>
-          <Card>
-            <Icon.Camera height={50} width={50} stroke={'skyblue'} />
-          </Card>
-          <Text style={styles.label}>Cameras</Text>
-        </View>
-        <View style={styles.tile}>
-          <Card>
-            <Icon.Aperture height={50} width={50} stroke={'lightgreen'} />
-          </Card>
-          <Text style={styles.label}>Lenses</Text>
-        </View>
-
-        <View style={styles.tile}>
-          <Card>
-            <Icon.Volume2 height={50} width={50} stroke={'lightcoral'} />
-          </Card>
-          <Text style={styles.label}>Sound</Text>
-        </View>
-
-        <View style={styles.tile}>
-          <Card>
-            <Icon.HardDrive height={50} width={50} stroke={'darkkhaki'} />
-          </Card>
-          <Text style={styles.label}>Storage</Text>
-        </View>
+        <TouchableOpacity onPress={() => navigation.navigate('Cameras')}>
+          <View style={styles.tile}>
+            <Card>
+              <Icon.Camera height={50} width={50} stroke={'skyblue'} />
+            </Card>
+            <Text style={styles.label}>Cameras</Text>
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('Lenses')}>
+          <View style={styles.tile}>
+            <Card>
+              <Icon.Aperture height={50} width={50} stroke={'lightgreen'} />
+            </Card>
+            <Text style={styles.label}>Lenses</Text>
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('Sound')}>
+          <View style={styles.tile}>
+            <Card>
+              <Icon.Volume2 height={50} width={50} stroke={'lightcoral'} />
+            </Card>
+            <Text style={styles.label}>Sound</Text>
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('Storage')}>
+          <View style={styles.tile}>
+            <Card>
+              <Icon.HardDrive height={50} width={50} stroke={'darkkhaki'} />
+            </Card>
+            <Text style={styles.label}>Storage</Text>
+          </View>
+        </TouchableOpacity>
       </View>
 
       <View style={styles.section4}>
         <Text style={styles.title}>Kits</Text>
         <Text style={styles.seeAll}>See all</Text>
       </View>
-
       <View style={styles.section5}>
-        <View style={styles.card5}>
-          <View style={styles.cardContent5}>
-            <Icon.Video height={45} width={45} stroke={'seagreen'} />
-            <Icon.BatteryCharging height={45} width={45} stroke={'turquoise'} />
-            <Icon.Monitor height={45} width={45} stroke={'violet'} />
-            <Icon.Mic height={45} width={45} stroke={'sandybrown'} />
-          </View>
-        </View>
-        <View style={styles.card5}>
-          <View style={styles.cardContent5}>
-            <Icon.Camera height={45} width={45} stroke={'khaki'} />
-            <Icon.Aperture height={45} width={45} stroke={'mediumpurple'} />
-            <Icon.Zap height={45} width={45} stroke={'deepskyblue'} />
-            <Icon.Image height={45} width={45} stroke={'darkcyan'} />
-          </View>
-        </View>
-      </View>
+        <TouchableOpacity onPress={() => navigation.navigate('Video Kits')}>
+          <View style={styles.card5}>
+            <View style={styles.cardContent5}>
+              <Icon.Video height={45} width={45} stroke={'seagreen'} />
+              <Icon.BatteryCharging height={45}width={45}stroke={'turquoise'}/>
+                <Icon.Monitor height={45} width={45} stroke={'violet'} />
+              <Icon.Mic height={45} width={45} stroke={'sandybrown'} />
+            </View>
 
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('Photo Kits')}>
+          <View style={styles.card5}>
+            <View style={styles.cardContent5}>
+              <Icon.Camera height={45} width={45} stroke={'khaki'} />
+              <Icon.Aperture height={45} width={45} stroke={'mediumpurple'} />
+              <Icon.Zap height={45} width={45} stroke={'deepskyblue'} />
+              <Icon.Image height={45} width={45} stroke={'darkcyan'} />
+            </View>
+          </View>
+        </TouchableOpacity>
+      </View>
       <View style={styles.label5container}>
         <Text style={styles.label5}>Video Packages</Text>
         <Text style={styles.label5}>Photo Packages</Text>
@@ -118,6 +131,7 @@ const styles = StyleSheet.create({
     color: 'navy',
   },
   user: {
+    marginTop: -30,
     borderWidth: 2,
     borderRadius: 80,
     marginRight: 40,
@@ -183,28 +197,17 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginTop: -40,
     marginBottom: -50,
-    // borderWidth: 1,
   },
   label5container: {
     height: 30,
     width: '65%',
     justifyContent: 'space-between',
-    flexDirection: 'row'
+    flexDirection: 'row',
   },
   label5: {
     color: 'navy',
     fontSize: 15,
   },
-  // section5Tiles:{
-  //     alignItems: 'center',
-  //     justifyContent: 'space-around',
-  //     height: 50,
-  //     width: 50,
-  //     borderWidth: 1,
-  //     flexDirection:'row',
-  //     flex: 1,
-
-  // },
 
   card5: {
     borderRadius: 10,
@@ -218,13 +221,11 @@ const styles = StyleSheet.create({
     height: 130,
     width: 130,
     justifyContent: 'space-around',
-    // borderWidth: 1,
   },
   cardContent5: {
     marginHorizontal: 20,
     marginVertical: 10,
     flexWrap: 'wrap',
     justifyContent: 'space-evenly',
-    // alignItems: 'center',
   },
 });
