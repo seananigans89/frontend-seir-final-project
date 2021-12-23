@@ -13,9 +13,9 @@ const MyItems = ({items, navigation}) => {
 
 
 return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+    <View style={styles.container}>
         
-      <FlatList
+      <FlatList 
         
         numColumns={2}
         data={items}
@@ -23,11 +23,8 @@ return (
         renderItem={({item}) => (
             <TouchableOpacity 
                 onPress={() => navigation.navigate('ItemDetail', item)}
-                
-
-            
-           
             >
+                
             <Card >
               <Text numberOfLines={2} style={{width: 90}}>
                 {item.brand}
@@ -45,4 +42,15 @@ return (
 
 export default MyItems;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+    container:{
+        flex:1,
+        width: '100%',
+        alignItems: 'center',
+        justifyContent: 'center',
+
+    }
+    
+   
+
+})

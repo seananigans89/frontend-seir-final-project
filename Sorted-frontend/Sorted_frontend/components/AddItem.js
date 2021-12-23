@@ -18,11 +18,22 @@ const itemAddedAlert =() =>{
         }]
     )
 }
+const categories =() =>{[
+    {name: "Cameras", id: 1},
+    {name: "Lenses", id: 2},
+    {name: "Lighting", id: 3},
+    {name: "Support", id: 4},
+    {name: "Sound", id: 5},
+    {name: "Computers", id: 6},
+    {name: "Data Storage", id: 7},
+    {name: "Bags & Cases", id: 8},
+]
 
+}
   return (
-   <View>
+   <View style={styles.container}>
     <Formik
-        initialValues={{brand: '', model: '', serial: '', quantity: '1', category: '',}}
+        initialValues={{brand: '', model: '', serial: '', quantity: '', category: '',}}
         onSubmit={(values, actions) => {
             addItem(values)
             actions.resetForm()
@@ -30,7 +41,7 @@ const itemAddedAlert =() =>{
         }}
         >
          {(props) => (
-             <View>
+             <View >
                  <TextInput
                  style={styles.input}
                  placeholder='Brand'
@@ -56,9 +67,13 @@ const itemAddedAlert =() =>{
                  value={props.values.quantity}
                  keyboardType='numeric'
                  />
-                 {/* <Picker placeholder='Category'>
-                     <Picker.Item label="Camera" value='Camera'/>
-                 </Picker> */}
+                 <TextInput
+                 style={styles.input}
+                 placeholder='Category'
+                 onChangeText={props.handleChange('category')}
+                 value={props.values.category}
+                 />
+                
                  
                  
                  <Button style={styles.btn} title='Submit' color='lightblue' onPress={props.handleSubmit}/>
@@ -71,8 +86,14 @@ const itemAddedAlert =() =>{
 
 
 const styles = StyleSheet.create({
+    container:{
+        flex:1,
+        justifyContent:'center',
+        alignItems:'center'
+    },
     input: {
         height: 40,
+        width: 250,
         padding: 8,
         margin: 5,
         borderWidth: 1,

@@ -7,8 +7,8 @@ import Card from './Card';
 import {NavigationEvents} from 'react-navigation';
 import {Searchbar} from 'react-native-paper';
 
-const Home = props => {
-  console.log(props);
+const Home = ({navigation}) => {
+  console.log(navigation);
   return (
     <View style={styles.container}>
       <View style={styles.section1}>
@@ -54,7 +54,7 @@ const Home = props => {
 
         <View style={styles.tile}>
           <Card>
-            <Icon.HardDrive height={50} width={50} stroke={'khaki'} />
+            <Icon.HardDrive height={50} width={50} stroke={'darkkhaki'} />
           </Card>
           <Text style={styles.label}>Storage</Text>
         </View>
@@ -68,18 +68,18 @@ const Home = props => {
       <View style={styles.section5}>
         <View style={styles.card5}>
           <View style={styles.cardContent5}>
-            <Icon.Video height={50} width={50} stroke={'skyblue'} />
-            <Icon.BatteryCharging height={50} width={50} stroke={'skyblue'} />
-            <Icon.Monitor height={50} width={50} stroke={'skyblue'} />
-            <Icon.Mic height={50} width={50} stroke={'skyblue'} />
+            <Icon.Video height={45} width={45} stroke={'seagreen'} />
+            <Icon.BatteryCharging height={45} width={45} stroke={'turquoise'} />
+            <Icon.Monitor height={45} width={45} stroke={'violet'} />
+            <Icon.Mic height={45} width={45} stroke={'sandybrown'} />
           </View>
         </View>
         <View style={styles.card5}>
           <View style={styles.cardContent5}>
-            <Icon.Camera height={50} width={50} stroke={'lightgreen'} />
-            <Icon.Aperture height={50} width={50} stroke={'lightgreen'} />
-            <Icon.Zap height={50} width={50} stroke={'lightgreen'} />
-            <Icon.Image height={50} width={50} stroke={'lightgreen'} />
+            <Icon.Camera height={45} width={45} stroke={'khaki'} />
+            <Icon.Aperture height={45} width={45} stroke={'mediumpurple'} />
+            <Icon.Zap height={45} width={45} stroke={'deepskyblue'} />
+            <Icon.Image height={45} width={45} stroke={'darkcyan'} />
           </View>
         </View>
       </View>
@@ -221,10 +221,10 @@ const styles = StyleSheet.create({
     // borderWidth: 1,
   },
   cardContent5: {
-    marginHorizontal: 15,
+    marginHorizontal: 20,
     marginVertical: 10,
     flexWrap: 'wrap',
-    justifyContent: 'space-around',
+    justifyContent: 'space-evenly',
     // alignItems: 'center',
   },
 });
