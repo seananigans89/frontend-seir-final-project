@@ -25,14 +25,16 @@ const styles = StyleSheet.create({
         shadowColor: '#333',
         shadowOpacity: 0.3,
         shadowRadius: 2,
-        marginHorizontal: 4,
-        marginVertical: 6,
-        width: 150,
+        margin: 5,
         alignContent: 'center',
+        justifyContent: 'center',
         
       },
       cardContent: {
         marginHorizontal: 15,
         marginVertical: 15,
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
       }
     });

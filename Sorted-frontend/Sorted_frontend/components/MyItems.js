@@ -29,7 +29,7 @@ return (
            
             >
             <Card >
-              <Text>
+              <Text numberOfLines={2} style={{width: 90}}>
                 {item.brand}
                 {'\n'}
                 {item.model}

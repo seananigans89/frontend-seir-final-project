@@ -6,10 +6,6 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import MyItems from '../components/MyItems';
 import AddItem from '../components/AddItem';
 import * as Icon from 'react-native-feather';
-import {NavigationContainer} from '@react-navigation/native';
-import TestScreen from '../screens/MyItemsScreen';
-import Test from '../components/Test';
-import MyItemsScreen from '../screens/MyItemsScreen';
 
 const Tab = createBottomTabNavigator();
 const Root = ({navigation}) => {
@@ -55,7 +51,7 @@ const Root = ({navigation}) => {
       return [item, ...currentItems];
     });
   };
-
+  
   return (
     <Tab.Navigator
       initialRouteName="Home"
@@ -64,8 +60,9 @@ const Root = ({navigation}) => {
       activeColor="black"
       screenOptions={{
         tabBarShowLabel: false,
-        tabBarActiveTintColor: 'blue',
-        tabBarInactiveTintColor: 'black',
+        tabBarActiveTintColor: 'black',
+        tabBarInactiveTintColor: 'darkgrey',
+        
       }}>
       <Tab.Screen
         name="Home"
@@ -80,7 +77,7 @@ const Root = ({navigation}) => {
         name="My Items"
         options={{
           tabBarIcon: ({focused, color, size}) => {
-            return <Icon.Grid name={Icon} color={color} size={size} />;
+            return <Icon.Grid  color={color} size={size} />;
           },
         }}>
         {props => <MyItems items={items} navigation={props.navigation} />}
@@ -90,7 +87,7 @@ const Root = ({navigation}) => {
         name="Add Item"
         options={{
           tabBarIcon: ({focused, color, size}) => {
-            return <Icon.PlusCircle name={Icon} color={color} size={size} />;
+            return <Icon.PlusCircle  color={color} size={size} />;
           },
         }}>
         {props => (
@@ -103,7 +100,7 @@ const Root = ({navigation}) => {
         component={Settings}
         options={{
           tabBarIcon: ({focused, color, size}) => {
-            return <Icon.Settings name={Icon} color={color} size={size} />;
+            return <Icon.Settings  color={color} size={size} />;
           },
         }}
       />
@@ -113,4 +110,6 @@ const Root = ({navigation}) => {
 
 export default Root;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+ 
+});

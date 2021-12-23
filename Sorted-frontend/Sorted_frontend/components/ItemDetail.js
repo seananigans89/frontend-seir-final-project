@@ -9,7 +9,7 @@ const item = route.params
 console.log(item)
     return (
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-        <Card>
+        <Card >
           <Text>
             {item.brand}
             {'\n'}
