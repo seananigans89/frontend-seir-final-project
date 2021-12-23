@@ -18,7 +18,7 @@ export default Card
 
 const styles = StyleSheet.create({
       card: {
-        borderRadius: 6,
+        borderRadius: 10,
         elevation: 3,
         backgroundColor: '#fff',
         shadowOffset: { width: 1, height: 1 },
@@ -27,9 +27,12 @@ const styles = StyleSheet.create({
         shadowRadius: 2,
         marginHorizontal: 4,
         marginVertical: 6,
+        width: 150,
+        alignContent: 'center',
+        
       },
       cardContent: {
-        marginHorizontal: 30,
-        marginVertical: 30,
+        marginHorizontal: 15,
+        marginVertical: 15,
       }
     });

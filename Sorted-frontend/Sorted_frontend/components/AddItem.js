@@ -1,21 +1,32 @@
 import React, {useState} from 'react'
-import {View, Text, StyleSheet, TextInput, TouchableOpacity} from 'react-native'
+import {View, Text, StyleSheet, TextInput, TouchableOpacity, Alert} from 'react-native'
 import {Formik} from 'formik'
 import { Button } from 'react-native-elements';
-import { globalStyles } from '../global';
-
-const AddItem = ({addItem}) => {
+import {Picker} from 'react-native-picker'
 
 
 
+const AddItem = ({addItem, navigation}) => {
+
+const itemAddedAlert =() =>{
+    Alert.alert(
+        "Success!",
+        "Your Item Has Been Added",
+        [{
+            text: 'OK',
+            onPress: ()=> console.log("OK Pressed")
+        }]
+    )
+}
 
   return (
    <View>
     <Formik
         initialValues={{brand: '', model: '', serial: '', quantity: '1', category: '',}}
-        onSubmit={(values) => {
-            console.log(values)
+        onSubmit={(values, actions) => {
             addItem(values)
+            actions.resetForm()
+            itemAddedAlert()
         }}
         >
          {(props) => (
@@ -45,6 +56,11 @@ const AddItem = ({addItem}) => {
                  value={props.values.quantity}
                  keyboardType='numeric'
                  />
+                 {/* <Picker placeholder='Category'>
+                     <Picker.Item label="Camera" value='Camera'/>
+                 </Picker> */}
+                 
+                 
                  <Button style={styles.btn} title='Submit' color='lightblue' onPress={props.handleSubmit}/>
              </View>
          )}
