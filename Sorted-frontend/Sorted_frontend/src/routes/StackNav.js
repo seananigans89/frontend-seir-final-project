@@ -4,32 +4,46 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import ItemDetail from '../screens/ItemDetail';
 import {Context} from '../context/GlobalContext';
 import Login from '../screens/Login';
-import Cameras from '../components/Cameras'
+import Cameras from '../components/Cameras';
 import Lenses from '../components/Lenses';
 import Sound from '../components/Sound';
 import Storage from '../components/Storage';
 import VideoKits from '../components/VideoKits';
 import PhotoKits from '../components/PhotoKits';
 import TabNav from './TabNav';
+import * as SecureStore from 'expo-secure-store';
 
 const Stack = createNativeStackNavigator();
 
 function StackNav() {
   const globalContext = useContext(Context);
-  const {isLoggedIn, setIsLoggedIn, domain, userObj, setUserObj, setToken} =
-    globalContext;
+  const {
+    isLoggedIn,
+    setIsLoggedIn,
+    domain,
+    userObj,
+    setUserObj,
+   
+  } = globalContext;
+
+
+  const setToken = async (token) => {
+    await SecureStore.setItemAsync('token', token);
+    console.log('token', token);
+  };
 
   return (
     <Stack.Navigator initialRouteName="Login">
       {!isLoggedIn || !userObj ? (
         <Stack.Screen
+          setToken={setToken}
           name="Login"
           component={Login}
           options={{
             headerTitle: 'Sorted',
           }}
         />
-      ) : 
+      ) : (
         <>
           <Stack.Screen
             name="TabNav"
@@ -46,7 +60,7 @@ function StackNav() {
           <Stack.Screen name="Photo Kits" component={PhotoKits} />
           <Stack.Screen name="Video Kits" component={VideoKits} />
         </>
-      }
+      )}
     </Stack.Navigator>
   );
 }

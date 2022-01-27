@@ -23,19 +23,18 @@ const TabNav = ({navigation}) => {
     items,
     setItems,
     kits,
-    setKits,
+    setKits,  
   } = globalContext;
 
   useEffect(() => {
     getItems()
     getKits()
-    console.log(items)
   }, []);
 
  
 
   const getItems = async () => {
-    console.log(token)
+    console.log('tabnav', token)
     const apiObject = {
       method: 'GET',
       url: `${domain}/items/`,

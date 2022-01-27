@@ -7,14 +7,15 @@ import { Context } from '../context/GlobalContext';
 
 
 
-const Login = ({ navigation, values}) => {
+const Login = ({ navigation, values, props}) => {
 
   const globalContext = useContext(Context)
-  const { isLoggedIn, setIsLoggedIn, domain, userObj, setUserObj, token, setToken } = globalContext
+  const { isLoggedIn, setIsLoggedIn, domain, userObj, setUserObj, setToken, token, saveToken, printUserObj } = globalContext
+
+
+
 
   
-
-
 
 
 
@@ -41,16 +42,21 @@ const Login = ({ navigation, values}) => {
       const response = await axios(apiObject);
       if (response.status === 200) {
         setUserObj(response)
+        printUserObj()
         setToken(response.data.user.token)
+        // saveToken()
         setIsLoggedIn(true)
-
+        
       } else {
         throw new Error('An error has occurred');
       }
     } catch (error) {
       alert('An error has occurred');
     }
-    }
+    console.log('login', token)
+    
+  }
+  
     
 
     return (
