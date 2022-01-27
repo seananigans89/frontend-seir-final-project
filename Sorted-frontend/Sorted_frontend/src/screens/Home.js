@@ -8,12 +8,11 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import * as Icon from 'react-native-feather';
-import Card from './Card';
+import Card from '../shared/Card';
 
 import {Searchbar} from 'react-native-paper';
 
 const Home = ({navigation}) => {
-  console.log(navigation);
   return (
     <View style={styles.container}>
       <View style={styles.section1}>
